@@ -3,6 +3,8 @@ name: Get quotes
 on:
   workflow_dispatch:
 
+permissions: write-all
+
 jobs:
   get-quotes:
     runs-on: ubuntu-latest
