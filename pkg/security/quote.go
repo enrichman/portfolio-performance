@@ -12,7 +12,8 @@ var Securities = make(map[string]Fund)
 
 type Fund interface {
 	Name() string
-	LoadQuotes() []Quote
+	ISIN() string
+	LoadQuotes() ([]Quote, error)
 }
 
 type Quote struct {
@@ -21,22 +22,20 @@ type Quote struct {
 }
 
 func Register(fund Fund) {
-	name := fund.Name()
-	if name == "" {
-		log.Fatal("security name cannot be empty")
+	isin := fund.ISIN()
+	if isin == "" {
+		log.Fatal("security ISIN cannot be empty")
 	}
 
-	if _, found := Securities[name]; found {
-		log.Fatal(fmt.Sprintf("security '%s' already registered", name))
+	if _, found := Securities[isin]; found {
+		log.Fatal(fmt.Sprintf("security '%s' already registered", isin))
 	}
 
-	Securities[name] = fund
-	log.Info(fmt.Sprintf("security '%s' registered", name))
+	Securities[isin] = fund
+	log.Info(fmt.Sprintf("security '%s' registered", isin))
 }
 
 func Merge(quotes1 []Quote, quotes2 []Quote) []Quote {
-	log.Info("merging quotes")
-
 	quotesMap := map[time.Time]Quote{}
 
 	for _, q := range quotes1 {

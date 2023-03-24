@@ -2,7 +2,7 @@ module github.com/enrichman/portfolio-perfomance
 
 go 1.20
 
-require github.com/charmbracelet/log v0.1.2
+require github.com/charmbracelet/log v0.2.1
 
 require (
 	github.com/PuerkitoBio/goquery v1.5.1 // indirect
@@ -28,7 +28,7 @@ require (
 	github.com/go-logfmt/logfmt v0.6.0 // indirect
 	github.com/gocolly/colly/v2 v2.1.0
 	github.com/lucasb-eyer/go-colorful v1.2.0 // indirect
-	github.com/mattn/go-isatty v0.0.17 // indirect
+	github.com/mattn/go-isatty v0.0.18 // indirect
 	github.com/mattn/go-runewidth v0.0.14 // indirect
 	github.com/muesli/reflow v0.3.0 // indirect
 	github.com/muesli/termenv v0.15.1 // indirect

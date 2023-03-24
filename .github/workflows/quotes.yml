@@ -15,7 +15,7 @@ jobs:
 
       - name: Run quotes getter
         run: |
-          go run main.go
+          go run ./...
           
           if [ -z $(git status --porcelain) ];
           then
