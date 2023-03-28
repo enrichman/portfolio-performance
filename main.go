@@ -5,6 +5,7 @@ import (
 	"errors"
 	"fmt"
 	"os"
+	"strings"
 	"time"
 
 	"github.com/charmbracelet/log"
@@ -12,30 +13,34 @@ import (
 )
 
 func main() {
+	if strings.ToLower(os.Getenv("LOG_LEVEL")) == "debug" {
+		log.SetLevel(log.DebugLevel)
+	}
+
 	log.Infof("loaded %d securities", len(security.Securities))
 
 	for isin, f := range security.Securities {
 		start := time.Now().In(time.UTC)
 
-		log.Infof("loading quotes for '%s' [%s]", f.Name(), f.ISIN())
+		log.Infof("[%s] loading quotes for '%s'", f.ISIN(), f.Name())
 
-		quotes, err := f.LoadQuotes()
+		newQuotes, err := f.LoadQuotes()
 		if err != nil {
 			log.Errorf("error loading quotes: %w", err)
 			continue
 		}
-		if len(quotes) == 0 {
+		if len(newQuotes) == 0 {
 			log.Warn("no quotes found")
 			continue
 		}
 
-		log.Debug("found new quotes",
-			"from", quotes[0].Date,
-			"to", quotes[len(quotes)-1].Date,
+		log.Debug("new quotes loaded",
+			"from", newQuotes[0].Date,
+			"to", newQuotes[len(newQuotes)-1].Date,
 		)
 
 		filename := fmt.Sprintf("out/%s.json", isin)
-		log.Debug("loading OLD quotes for %s [%s] from '%s'", isin, f.ISIN(), filename)
+		log.Debugf("loading OLD quotes from '%s'", filename)
 
 		oldQuotes, err := loadQuotesFromFile(filename)
 		if err != nil {
@@ -50,21 +55,31 @@ func main() {
 				"from", oldQuotes[0].Date,
 				"to", oldQuotes[len(oldQuotes)-1].Date,
 			)
-
-			quotes = security.Merge(oldQuotes, quotes)
-			log.Debug("merged quotes",
-				"from", quotes[0].Date,
-				"to", quotes[len(quotes)-1].Date,
-			)
 		}
 
-		err = writeQuotesToFile(filename, quotes)
+		mergedQuotes := security.Merge(oldQuotes, newQuotes)
+		log.Debug("merged quotes",
+			"from", mergedQuotes[0].Date,
+			"to", mergedQuotes[len(mergedQuotes)-1].Date,
+		)
+
+		err = writeQuotesToFile(filename, mergedQuotes)
 		if err != nil {
 			log.Errorf("error writing quotes: %w", err)
 			continue
 		}
 
-		log.Infof("quotes loaded in %s", time.Now().Sub(start))
+		addedQuotes := len(mergedQuotes) - len(oldQuotes)
+		if addedQuotes == 0 {
+			log.Infof("[%s] no new quotes added", f.ISIN())
+		} else {
+			log.Infof(
+				"[%s] new quotes added [%d] - old [%d] - new [%d]",
+				f.ISIN(), addedQuotes, len(oldQuotes), len(newQuotes),
+			)
+		}
+
+		log.Infof("[%s] quotes loaded in %s", f.ISIN(), time.Now().Sub(start))
 	}
 }
 

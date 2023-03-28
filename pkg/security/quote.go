@@ -39,12 +39,19 @@ func Merge(quotes1 []Quote, quotes2 []Quote) []Quote {
 	quotesMap := map[time.Time]Quote{}
 
 	for _, q := range quotes1 {
+		q.Date = q.Date.UTC()
 		quotesMap[q.Date] = q
 	}
 
 	for _, q := range quotes2 {
+		q.Date = q.Date.UTC()
+
 		if oldQuote, found := quotesMap[q.Date]; found {
-			log.Debug("quote for date '%v' already exists [old: %v - new: %v]", oldQuote.Close, q.Close)
+			if oldQuote.Close != q.Close {
+				log.Warnf("quote for date '%v' already exists with different value [old: %v - new: %v]",
+					q.Date, oldQuote.Close, q.Close,
+				)
+			}
 		}
 		quotesMap[q.Date] = q
 	}
