@@ -92,7 +92,7 @@ func (b *Btp) LoadQuotes() ([]security.Quote, error) {
 	quotes := []security.Quote{}
 	for _, quote := range result.Data {
 		quotes = append(quotes, security.Quote{
-			Date:  time.Unix(int64(quote[0]/1000), 0),
+			Date:  time.Unix(int64(quote[0]/1000), 0).In(time.UTC),
 			Close: quote[1],
 		})
 	}

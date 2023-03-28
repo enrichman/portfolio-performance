@@ -15,7 +15,7 @@ func main() {
 	log.Infof("loaded %d securities", len(security.Securities))
 
 	for isin, f := range security.Securities {
-		start := time.Now()
+		start := time.Now().In(time.UTC)
 
 		log.Infof("loading quotes for '%s' [%s]", f.Name(), f.ISIN())
 
