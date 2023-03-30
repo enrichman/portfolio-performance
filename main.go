@@ -39,12 +39,12 @@ func main() {
 			"to", newQuotes[len(newQuotes)-1].Date,
 		)
 
-		filename := fmt.Sprintf("out/%s.json", isin)
+		filename := fmt.Sprintf("out/json/%s.json", isin)
 		log.Debugf("loading OLD quotes from '%s'", filename)
 
 		oldQuotes, err := loadQuotesFromFile(filename)
 		if err != nil {
-			log.Errorf("error loading quotes: %w", err)
+			log.Errorf("error loading quotes: %s", err.Error())
 			continue
 		}
 
@@ -65,7 +65,7 @@ func main() {
 
 		err = writeQuotesToFile(filename, mergedQuotes)
 		if err != nil {
-			log.Errorf("error writing quotes: %w", err)
+			log.Errorf("error writing quotes: %s", err.Error())
 			continue
 		}
 
@@ -89,13 +89,13 @@ func loadQuotesFromFile(filename string) ([]security.Quote, error) {
 		return nil, nil
 	}
 	if err != nil {
-		return nil, fmt.Errorf("error reading file [%s]: %w", filename, err)
+		return nil, fmt.Errorf("error reading file [%s]: %s", filename, err.Error())
 	}
 
 	var oldQuotes []security.Quote
 	err = json.Unmarshal(oldQuotesByte, &oldQuotes)
 	if err != nil {
-		return nil, fmt.Errorf("error unmarshaling file [%s]: %w", filename, err)
+		return nil, fmt.Errorf("error unmarshaling file [%s]: %s", filename, err.Error())
 	}
 
 	return oldQuotes, nil
@@ -104,17 +104,17 @@ func loadQuotesFromFile(filename string) ([]security.Quote, error) {
 func writeQuotesToFile(filename string, quotes []security.Quote) error {
 	jsonOutput, err := json.MarshalIndent(quotes, "", "  ")
 	if err != nil {
-		return fmt.Errorf("error marshaling file [%s]: %w", filename, err)
+		return fmt.Errorf("error marshaling file [%s]: %s", filename, err.Error())
 	}
 
 	file, err := os.OpenFile(filename, os.O_APPEND|os.O_WRONLY|os.O_CREATE, 0644)
 	if err != nil {
-		return fmt.Errorf("error opening file [%s]: %w", filename, err)
+		return fmt.Errorf("error opening file [%s]: %s", filename, err.Error())
 	}
 	file.Truncate(0)
 
 	if _, err = file.Write(jsonOutput); err != nil {
-		return fmt.Errorf("error writing to file [%s]: %w", filename, err)
+		return fmt.Errorf("error writing to file [%s]: %s", filename, err.Error())
 	}
 
 	return nil
