@@ -11,20 +11,20 @@ jobs:
     name: 📈 Update Quotes
     runs-on: ubuntu-latest
 
-    steps:
-      - name: ⬇️ Checkout repo
-        uses: actions/checkout@v3
+    # steps:
+    #   - name: ⬇️ Checkout repo
+    #     uses: actions/checkout@v3
 
-      - name: 🐹 Setup Go
-        uses: actions/setup-go@v4
+    #   - name: 🐹 Setup Go
+    #     uses: actions/setup-go@v4
 
-      - name: 📈 Run quotes getter
-        run: go run .
+    #   - name: 📈 Run quotes getter
+    #     run: go run .
 
-      - name: ⬆️ Push all changes
-        uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          branch: main
-          add_options: "--all"
-          commit_message: Automated report
-          commit_options: "-a"
+    #   - name: ⬆️ Push all changes
+    #     uses: stefanzweifel/git-auto-commit-action@v4
+    #     with:
+    #       branch: main
+    #       add_options: "--all"
+    #       commit_message: Automated report
+    #       commit_options: "-a"
