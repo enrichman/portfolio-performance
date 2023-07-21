@@ -8,9 +8,9 @@ import (
 	"github.com/charmbracelet/log"
 )
 
-var Securities = make(map[string]Fund)
+var Securities = make(map[string]QuoteLoader)
 
-type Fund interface {
+type QuoteLoader interface {
 	Name() string
 	ISIN() string
 	LoadQuotes() ([]Quote, error)
@@ -21,7 +21,7 @@ type Quote struct {
 	Close float32   `json:"close"`
 }
 
-func Register(fund Fund) {
+func Register(fund QuoteLoader) {
 	isin := fund.ISIN()
 	if isin == "" {
 		log.Fatal("security ISIN cannot be empty")

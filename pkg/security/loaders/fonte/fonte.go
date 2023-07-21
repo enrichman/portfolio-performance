@@ -34,10 +34,6 @@ func (e *Fonte) ISIN() string {
 	return e.isin
 }
 
-func init() {
-	security.Register(New("Fondo Pensione Fon.Te. - Comparto Dinamico", "FP-FonTe-Dinamico"))
-}
-
 func (f *Fonte) LoadQuotes() ([]security.Quote, error) {
 	c := colly.NewCollector()
 

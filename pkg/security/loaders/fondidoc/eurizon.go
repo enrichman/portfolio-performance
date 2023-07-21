@@ -1,4 +1,4 @@
-package eurizon
+package fondidoc
 
 import (
 	"encoding/json"
@@ -68,8 +68,4 @@ func (*Eurizon) LoadQuotes() ([]security.Quote, error) {
 	}
 
 	return quotes, nil
-}
-
-func init() {
-	security.Register(New("Azioni Internazionali ESG", "IT0001083424"))
 }

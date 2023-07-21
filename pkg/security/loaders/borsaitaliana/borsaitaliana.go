@@ -1,4 +1,4 @@
-package btp
+package borsaitaliana
 
 import (
 	"bytes"
@@ -6,28 +6,38 @@ import (
 	"fmt"
 	"io"
 	"net/http"
+	"strings"
 	"time"
 
 	"github.com/enrichman/portfolio-perfomance/pkg/security"
 )
 
-type Btp struct {
-	name string
-	isin string
+type BorsaItalianaQuoteLoader struct {
+	name   string
+	isin   string
+	market string
 }
 
-func New(name, isin string) *Btp {
-	return &Btp{
-		name: name,
-		isin: isin,
+func New(name, isin string) *BorsaItalianaQuoteLoader {
+	isinMarket := strings.Split(isin, ".")
+
+	var market string
+	if len(isinMarket) > 1 {
+		market = isinMarket[1]
+	}
+
+	return &BorsaItalianaQuoteLoader{
+		name:   name,
+		isin:   isinMarket[0],
+		market: market,
 	}
 }
 
-func (e *Btp) Name() string {
-	return e.name
+func (b *BorsaItalianaQuoteLoader) Name() string {
+	return b.name
 }
 
-func (b *Btp) ISIN() string {
+func (b *BorsaItalianaQuoteLoader) ISIN() string {
 	return b.isin
 }
 
@@ -50,13 +60,13 @@ type RequestPayload struct {
 	Language             string
 }
 
-func (b *Btp) LoadQuotes() ([]security.Quote, error) {
+func (b *BorsaItalianaQuoteLoader) LoadQuotes() ([]security.Quote, error) {
 	payload := RequestPayload{
 		SampleTime:           "1d",
 		TimeFrame:            "5y",
 		RequestedDataSetType: "ohlc",
 		ChartPriceType:       "price",
-		Key:                  fmt.Sprintf("%s.MOT", b.isin),
+		Key:                  fmt.Sprintf("%s.%s", b.isin, b.market),
 		KeyType:              "Topic",
 		KeyType2:             "Topic",
 		Language:             "en-US",
