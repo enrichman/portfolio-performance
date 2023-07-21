@@ -6,7 +6,11 @@ They are updated daily and available under the `https://enrichman.github.io/port
 
 Example: https://enrichman.github.io/portfolio-performance/json/IT0005532723.json
 
-## How To
+## Add a quote
+
+If a quote is not present it needs to be added in the [`securities.csv`](https://github.com/enrichman/portfolio-performance/blob/main/securities.csv). It needs the ISIN, a Name, and a "loader". If the loader does not exists already it needs to be implemented.
+
+## How To add a quote to Portfolio Performance
 
 Add an empty instrument and add the JSON historical quotes.
 
