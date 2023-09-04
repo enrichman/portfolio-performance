@@ -8,7 +8,9 @@
 "IT0005547408.MOT","Btp Valore Gn27 Eur","borsaitaliana"
 "IT0005532723.MOT","Btp Italia Mz28 Eur","borsaitaliana"
 "IT0005497000.MOT","Btp Italia Gn30 Eur","borsaitaliana"
+"IT0005499311.MOT","Btp Tf 1,75% Mg24 Eur","borsaitaliana"
 "IT0005494239.MOT","Btp Tf 2,5% Dc32 Eur","borsaitaliana"
+"IT0005559817.MOT","Bot Zc Ag24 A Eur","borsaitaliana"
 
 
 # Bond
@@ -16,6 +18,7 @@
 "AT0000A324S8.MOT","Austria Tf 2,9% Fb33 Eur","borsaitaliana"
 "DE0001102358.MOT","Bund Tf 1.5% Mg24 Eur","borsaitaliana"
 "DE0001102366.MOT","Bund Tf 1% Ag24 Eur","borsaitaliana"
+"DE000BU22007.MOT","Schatz Tf 2,5% Mz25 Eur","borsaitaliana"
 "IT0005521171.MOT","Eni Sdg Linked Tf 4,3% Fb28 Eur","borsaitaliana"
 "XS2110112971.TLX","Citigroup Social Bond Tf 3,28% Dc25 Eur","borsaitaliana"
 "XS2533094400.TLX","Mediobanca Tf 3,4% Ot26 Eur","borsaitaliana"
