@@ -66,3 +66,10 @@
 ##################
 
 "IT0001083424","Eurizon Azioni Internazionali ESG","fondidoc"
+
+######################################
+# Securities traded on Swiss markets #
+######################################
+"CH0025417491","Swisscanto (CH) Index Equity Fund Switzerland Total (II) FA CHF","raiffeisench"
+"CH1201876484","Swisscanto (CH) Index Fund III - Swisscanto (CH) Index Equity Fund MSCI (R) World ex Switzerland","raiffeisench"
+"CH0561458610","Swisscanto (CH) Index Equity Fund Emerging Markets Responsible FA CHF","raiffeisench"
