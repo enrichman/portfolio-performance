@@ -13,28 +13,20 @@ import (
 )
 
 type RaiffeisenchQuoteLoader struct {
-	name  string
-	isin  string
-	valor int
+	name string
+	isin string
 }
 
 func New(name, isin string) *RaiffeisenchQuoteLoader {
-	valor, err := getValorFromISIN(isin)
-	if err != nil {
-		panic(err)
-	}
-
 	return &RaiffeisenchQuoteLoader{
-		name:  name,
-		isin:  isin,
-		valor: valor,
+		name: name,
+		isin: isin,
 	}
 }
 
+// getValorFromISIN returns the valoren number (https://en.wikipedia.org/wiki/Valoren_number) for a given ISIN (https://www.isin.org/isin-format/).
+// i.e. "CH0025417491" will return "2541749"
 func getValorFromISIN(isin string) (int, error) {
-	// https://en.wikipedia.org/wiki/Valoren_number
-	// https://www.isin.org/isin-format/
-
 	if !strings.HasPrefix(isin, "CH") {
 		return 0, fmt.Errorf("valor number can only be extracted for Swiss financial instruments")
 	}
@@ -68,8 +60,8 @@ type HistoryQuotesRequest struct {
 
 type HistoryQuotesResponse struct {
 	HistoryQuotes []struct {
-		Date  string      `json:"date"`
-		Close float32     `json:"close"`
+		Date  string  `json:"date"`
+		Close float32 `json:"close"`
 		Open  float32 `json:"open"`
 		High  float32 `json:"high"`
 		Low   float32 `json:"low"`
@@ -77,11 +69,17 @@ type HistoryQuotesResponse struct {
 }
 
 func (r *RaiffeisenchQuoteLoader) LoadQuotes() ([]security.Quote, error) {
+	// Translate ISIN to Valoren number
+	valor, err := getValorFromISIN(r.isin)
+	if err != nil {
+		return nil, err
+	}
+
 	// Build request payload
 	endDate := time.Now()
-	startDate :=  endDate.AddDate(-1, 0, 0) // one year ago
+	startDate := endDate.AddDate(-1, 0, 0) // one year ago
 	payload := HistoryQuotesRequest{
-		Valor:      r.valor,
+		Valor:      valor,
 		ExchangeId: 3233,
 		CurrencyId: 1, // CHF
 		From:       startDate.UTC(),
