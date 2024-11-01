@@ -39,18 +39,13 @@ func getValorFromISIN(isin string) (int, error) {
 		return 0, fmt.Errorf("valor number can only be extracted for Swiss financial instruments")
 	}
 
-	// strip CH
 	val := strings.TrimPrefix(isin, "CH")
-
-	// strip all leading zeros
 	val = strings.TrimLeft(val, "0")
-
-	// drop last digit (ISIN checksum)
-	val = val[0 : len(val)-1]
+	val = val[:len(val)-1]
 
 	valor, err := strconv.Atoi(val)
 	if err != nil {
-		return 0, fmt.Errorf("failed to read valor number from ISIN: %w", err)
+		return 0, fmt.Errorf("failed to read valor number from ISIN %s: %w", isin, err)
 	}
 	return valor, nil
 }
@@ -61,10 +56,6 @@ func (r *RaiffeisenchQuoteLoader) Name() string {
 
 func (r *RaiffeisenchQuoteLoader) ISIN() string {
 	return r.isin
-}
-
-func (r *RaiffeisenchQuoteLoader) Valor() int {
-	return r.valor
 }
 
 type HistoryQuotesRequest struct {
@@ -78,17 +69,17 @@ type HistoryQuotesRequest struct {
 type HistoryQuotesResponse struct {
 	HistoryQuotes []struct {
 		Date  string      `json:"date"`
-		Close float64     `json:"close"`
-		Open  interface{} `json:"open"`
-		High  interface{} `json:"high"`
-		Low   interface{} `json:"low"`
+		Close float32     `json:"close"`
+		Open  float32 `json:"open"`
+		High  float32 `json:"high"`
+		Low   float32 `json:"low"`
 	} `json:"historyQuotes"`
 }
 
 func (r *RaiffeisenchQuoteLoader) LoadQuotes() ([]security.Quote, error) {
 	// Build request payload
 	endDate := time.Now()
-	startDate := time.Now().Add(-1 * time.Hour * 24 * 365) // one year ago
+	startDate :=  endDate.AddDate(-1, 0, 0) // one year ago
 	payload := HistoryQuotesRequest{
 		Valor:      r.valor,
 		ExchangeId: 3233,
@@ -102,9 +93,8 @@ func (r *RaiffeisenchQuoteLoader) LoadQuotes() ([]security.Quote, error) {
 		return nil, fmt.Errorf("error marshaling request body: %w", err)
 	}
 
-	// Build request
-	req, _ := http.NewRequest(
-		"POST",
+	req, err := http.NewRequest(
+		http.MethodPost,
 		"https://boerse.raiffeisen.ch/api/HistoryQuotes",
 		bytes.NewBuffer(payloadBytes),
 	)
@@ -117,9 +107,7 @@ func (r *RaiffeisenchQuoteLoader) LoadQuotes() ([]security.Quote, error) {
 
 	// fmt.Println(req)
 
-	// Create an HTTP client and send the request
-	client := &http.Client{}
-	res, err := client.Do(req)
+	res, err := http.DefaultClient.Do(req)
 	if err != nil {
 		return nil, fmt.Errorf("error during get request: %w", err)
 	}
@@ -142,7 +130,7 @@ func (r *RaiffeisenchQuoteLoader) LoadQuotes() ([]security.Quote, error) {
 	// Convert into the desired return format
 	quotes := make([]security.Quote, 0, len(result.HistoryQuotes))
 	for _, quote := range result.HistoryQuotes {
-		date, err := time.Parse(time.RFC3339, quote.Date+"Z")
+		date, err := time.Parse("2006-01-02T15:04:05", quote.Date)
 		if err != nil {
 			return nil, fmt.Errorf("failed to parse date '%s' of quote: %w", quote.Date, err)
 		}
