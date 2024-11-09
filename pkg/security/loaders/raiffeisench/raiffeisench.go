@@ -12,6 +12,11 @@ import (
 	"github.com/enrichman/portfolio-perfomance/pkg/security"
 )
 
+const (
+	EPFCHFExchangeID = 3233
+	CHFCurrencyID    = 1
+)
+
 type RaiffeisenchQuoteLoader struct {
 	name string
 	isin string
@@ -75,13 +80,13 @@ func (r *RaiffeisenchQuoteLoader) LoadQuotes() ([]security.Quote, error) {
 		return nil, err
 	}
 
-	// Build request payload
 	endDate := time.Now()
 	startDate := endDate.AddDate(-1, 0, 0) // one year ago
+
 	payload := HistoryQuotesRequest{
 		Valor:      valor,
-		ExchangeId: 3233,
-		CurrencyId: 1, // CHF
+		ExchangeId: EPFCHFExchangeID,
+		CurrencyId: CHFCurrencyID,
 		From:       startDate.UTC(),
 		To:         endDate.UTC(),
 	}
@@ -96,14 +101,16 @@ func (r *RaiffeisenchQuoteLoader) LoadQuotes() ([]security.Quote, error) {
 		"https://boerse.raiffeisen.ch/api/HistoryQuotes",
 		bytes.NewBuffer(payloadBytes),
 	)
+	if err != nil {
+		return nil, fmt.Errorf("error loading raiffeisen history quotes: %w", err)
+	}
+
 	req.Header.Set("Accept", "application/json")
 	req.Header.Set("Content-type", "application/json")
 	// We need to directly set the key in the header map,
 	// because Go's stdlib canonicalizes all HTTP headers,
 	// but the remote API requires this header to be lowercase.
 	req.Header["customer"] = []string{"raiffeisen-prod"}
-
-	// fmt.Println(req)
 
 	res, err := http.DefaultClient.Do(req)
 	if err != nil {
@@ -113,14 +120,9 @@ func (r *RaiffeisenchQuoteLoader) LoadQuotes() ([]security.Quote, error) {
 	if res.StatusCode != http.StatusOK {
 		return nil, fmt.Errorf("server replied with unexpected status code '%s'", res.Status)
 	}
-	// fmt.Println(res.StatusCode)
-	// fmt.Println(res.Header)
 
-	// Read and parse response body
 	var result HistoryQuotesResponse
-	reader := res.Body
-	// reader = io.TeeReader(res.Body, os.Stdout)
-	err = json.NewDecoder(reader).Decode(&result)
+	err = json.NewDecoder(res.Body).Decode(&result)
 	if err != nil {
 		return nil, fmt.Errorf("error unmarshaling body: %w", err)
 	}
