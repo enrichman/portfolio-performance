@@ -28,6 +28,7 @@
 
 "IT0005559817.MOT","Bot Zc Ag24 A Eur","borsaitaliana"
 
+
 # Bond
 
 "AT0000A324S8.MOT","Austria Tf 2,9% Fb33 Eur","borsaitaliana"
@@ -37,11 +38,14 @@
 "DE000BU22007.MOT","Schatz Tf 2,5% Mz25 Eur","borsaitaliana"
 "IT0005521171.MOT","Eni Sdg Linked Tf 4,3% Fb28 Eur","borsaitaliana"
 "FI4000511449.MOT","Finland Tf 0% St26 Eur","borsaitaliana"
+"FR0014001N38.MOT","Oatei Tf 0,1% Lg31 Eur","borsaitaliana"
 "AT0000A2VB47.MOT","Austria Tf 0% Ot28 Eur","borsaitaliana"
 "FR0013410552.MOT","Oatei Tf 0,1% Mz29 Eur","borsaitaliana"
 "XS2110112971.TLX","Citigroup Social Bond Tf 3,28% Dc25 Eur","borsaitaliana"
 "XS2533094400.TLX","Mediobanca Tf 3,4% Ot26 Eur","borsaitaliana"
 "XS2587298204.MOT","Eib Tf 2,75% Lg28 Eur","borsaitaliana"
+"XS2908645265.MOT","Romania Fx 6% Sep44 Eur","borsaitaliana"
+
 
 ###################
 # Fondi pensione
@@ -61,15 +65,18 @@
 "QS0000003561","SecondaPensione Espansione ESG","secondapensione"
 "QS0000003562","SecondaPensione Bilanciata ESG","secondapensione"
 
+
 ##################
 # Misc
 ##################
 
 "IT0001083424","Eurizon Azioni Internazionali ESG","fondidoc"
 
-######################################
-# Securities traded on Swiss markets #
-######################################
+
+########################
+# Raiffeisen Svizzera
+########################
+
 "CH0025417491","Swisscanto (CH) Index Equity Fund Switzerland Total (II) FA CHF","raiffeisench"
 "CH1201876484","Swisscanto (CH) Index Fund III - Swisscanto (CH) Index Equity Fund MSCI (R) World ex Switzerland","raiffeisench"
 "CH0561458610","Swisscanto (CH) Index Equity Fund Emerging Markets Responsible FA CHF","raiffeisench"
