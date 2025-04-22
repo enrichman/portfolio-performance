@@ -53,6 +53,12 @@
 "XS2999552909.MOT","Romania Fx 6.25% Sep34 Eur","borsaitaliana"
 
 
+# Certificates
+# For the certificates you need to add the .MCW suffix and the alphanumeric code to the ISIN code
+
+"XS2982333986.MCW.I10714","IS BON CAP UNICREDIT 51.33 60 280229","borsaitaliana"
+
+
 ###################
 # Fondi pensione
 ###################
@@ -76,13 +82,17 @@
 # Misc
 ##################
 
-"IT0001083424","Eurizon Azionario Internazionale Etico","fondidoc"
+
 "IT0000384641","Arca TE - Titoli Esteri","fondidoc"
+"IT0001083424","Eurizon Azionario Internazionale Etico","fondidoc"
+"IT0005640377","Eurizon Strategia Obbligazionaria 5a Ed.1-25 Dis","fondidoc"
+"IT0005640393","Eurizon Strategia Obblig. HY 5a Ed.1-2025 Dis","fondidoc"
 
 
 ########################
 # Raiffeisen Svizzera
 ########################
+
 
 "CH0025417491","Swisscanto (CH) Index Equity Fund Switzerland Total (II) FA CHF","raiffeisench"
 "CH1201876484","Swisscanto (CH) Index Fund III - Swisscanto (CH) Index Equity Fund MSCI (R) World ex Switzerland","raiffeisench"
