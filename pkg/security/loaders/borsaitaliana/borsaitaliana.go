@@ -13,24 +13,29 @@ import (
 )
 
 type BorsaItalianaQuoteLoader struct {
-	name   string
-	isin   string
-	market string
+	name             string
+	isin             string
+	market           string
+	alphanumericCode string
 }
 
 func New(name, isin string) *BorsaItalianaQuoteLoader {
-	isinMarket := strings.Split(isin, ".")
+	isinMarketCode := strings.Split(isin, ".")
 
-	var market string
-	if len(isinMarket) > 1 {
-		market = isinMarket[1]
+	loader := &BorsaItalianaQuoteLoader{
+		name: name,
+		isin: isinMarketCode[0],
 	}
 
-	return &BorsaItalianaQuoteLoader{
-		name:   name,
-		isin:   isinMarket[0],
-		market: market,
+	if len(isinMarketCode) > 1 {
+		loader.market = isinMarketCode[1]
 	}
+
+	if len(isinMarketCode) > 2 {
+		loader.alphanumericCode = isinMarketCode[2]
+	}
+
+	return loader
 }
 
 func (b *BorsaItalianaQuoteLoader) Name() string {
@@ -70,6 +75,11 @@ func (b *BorsaItalianaQuoteLoader) LoadQuotes() ([]security.Quote, error) {
 		KeyType:              "Topic",
 		KeyType2:             "Topic",
 		Language:             "en-US",
+	}
+
+	// if the alphanumeric code is not empty, use it as the key (CW and Certificates)
+	if b.alphanumericCode != "" && b.market == "MCW" {
+		payload.Key = fmt.Sprintf("%s.%s", b.alphanumericCode, b.market)
 	}
 
 	payloadBytes, err := json.Marshal(struct {
