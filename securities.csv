@@ -57,6 +57,7 @@
 # For the certificates you need to add the .MCW suffix and the alphanumeric code to the ISIN code
 
 "XS2982333986.MCW.I10714","IS BON CAP UNICREDIT 51.33 60 280229","borsaitaliana"
+"DE000VK1VSJ7.MCW.F68746","VON EXP MSFT/NVDA/TESLA/VISA 50 170428","borsaitaliana"
 
 
 ###################
