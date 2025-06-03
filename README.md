@@ -18,7 +18,7 @@ To load the quotes in Portfolio Performance just add the URL of the quotes that 
 
 - Date: `$[*].date`
 - Close: `$[*].close`
-- 
+
 <img width="752" alt="screenshot_1" src="https://github.com/user-attachments/assets/dcca6929-f588-4e8e-8e0e-d53702644133" />
 
 You will be able to see the graph in the main screen now:
