@@ -16,10 +16,10 @@ Add an empty instrument and add the JSON historical quotes.
 
 To load the quotes in Portfolio Performance just add the URL of the quotes that you need with the proper JSONPath expression:
 
-- Date: `$.[*].date`
-- Close: `$.[*].close`
+- Date: `$[*].date`
+- Close: `$[*].close`
 
-<img width="718" alt="Screen Shot 2023-03-30 at 14 40 19" src="https://user-images.githubusercontent.com/1763949/228841363-678aafa9-6ff1-4840-8bd5-17c4ebd25dbb.png">
+<img width="752" alt="screenshot_1" src="https://github.com/user-attachments/assets/dcca6929-f588-4e8e-8e0e-d53702644133" />
 
 You will be able to see the graph in the main screen now:
 
