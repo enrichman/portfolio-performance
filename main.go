@@ -14,6 +14,7 @@ import (
 	"github.com/enrichman/portfolio-perfomance/pkg/security/loaders/borsaitaliana"
 	"github.com/enrichman/portfolio-perfomance/pkg/security/loaders/fondidoc"
 	"github.com/enrichman/portfolio-perfomance/pkg/security/loaders/fonte"
+	"github.com/enrichman/portfolio-perfomance/pkg/security/loaders/priamo"
 	"github.com/enrichman/portfolio-perfomance/pkg/security/loaders/raiffeisench"
 	"github.com/enrichman/portfolio-perfomance/pkg/security/loaders/secondapensione"
 )
@@ -164,6 +165,8 @@ func loadSecuritiesFromCSV(path string) error {
 			quoteLoader = raiffeisench.New(name, isin)
 		case "fonte":
 			quoteLoader = fonte.New(name, isin)
+		case "priamo":
+			quoteLoader = priamo.New(name, isin)
 		case "secondapensione":
 			quoteLoader = secondapensione.New(name, isin)
 		case "fondidoc":
