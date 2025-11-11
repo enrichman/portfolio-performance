@@ -79,6 +79,13 @@
 "FP-FonTe-Dinamico","Fondo Pensione Fon.Te. - Comparto Dinamico","fonte"
 
 
+# Priamo
+
+"FP-Priamo-BilanciatoSviluppo","Fondo Pensione Priamo - Comparto Bilanciato Sviluppo","priamo"
+"FP-Priamo-GarantitoProtezione","Fondo Pensione Priamo - Comparto Garantito Protezione","priamo"
+"FP-Priamo-BilanciatoPrudenza","Fondo Pensione Priamo - Comparto Bilanciato Prudenza","priamo"
+
+
 # Secondapensione
 
 "QS0000003560","SecondaPensione Prudente ESG","secondapensione"
