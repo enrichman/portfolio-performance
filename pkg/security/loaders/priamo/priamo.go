@@ -13,18 +13,26 @@ import (
 )
 
 const (
-	PriamoBilanciatoAvanzatoURL = "https://www.fondopriamo.it/grafici/tabella.php?c=330"
+	PriamoURL = "https://www.fondopriamo.it/grafici/tabella.php?c="
 )
+
+var priamoCodeMap = map[string]string{
+	"FP-Priamo-BilanciatoSviluppo":  "330",
+	"FP-Priamo-GarantitoProtezione": "331",
+	"FP-Priamo-BilanciatoPrudenza":  "330",
+}
 
 type Priamo struct {
 	name string
 	isin string
+	code string
 }
 
 func New(name, isin string) *Priamo {
 	return &Priamo{
 		name: name,
 		isin: isin,
+		code: priamoCodeMap[isin],
 	}
 }
 
@@ -42,14 +50,8 @@ type PriamoData struct {
 	Valore string `json:"valore"`
 }
 
-// {
-// 	"data": "settembre 2025",
-// 	"anno": "2025",
-// 	"valore": "22,762"
-// }
-
 func (f *Priamo) LoadQuotes() ([]security.Quote, error) {
-	resp, err := http.Get(PriamoBilanciatoAvanzatoURL)
+	resp, err := http.Get(PriamoURL + f.code)
 	if err != nil {
 		return nil, err
 	}
