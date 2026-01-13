@@ -32,68 +32,84 @@ func main() {
 
 	log.Infof("loaded %d securities", len(security.Securities))
 
-	for isin, f := range security.Securities {
-		start := time.Now().In(time.UTC)
+	if len(os.Args) > 1 {
+		isin := os.Args[1]
 
-		log.Infof("[%s] loading quotes for '%s'", f.ISIN(), f.Name())
-
-		newQuotes, err := f.LoadQuotes()
-		if err != nil {
-			log.Errorf("error loading quotes: %s", err)
-			continue
-		}
-		if len(newQuotes) == 0 {
-			log.Warn("no quotes found")
-			continue
+		loader, ok := security.Securities[isin]
+		if !ok {
+			log.Errorf("security not found for ISIN %s", isin)
+			os.Exit(1)
 		}
 
-		log.Debug("new quotes loaded",
-			"from", newQuotes[0].Date,
-			"to", newQuotes[len(newQuotes)-1].Date,
-		)
-
-		filename := fmt.Sprintf("out/json/%s.json", isin)
-		log.Debugf("loading OLD quotes from '%s'", filename)
-
-		oldQuotes, err := loadQuotesFromFile(filename)
-		if err != nil {
-			log.Errorf("error loading quotes: %s", err.Error())
-			continue
+		loadQuote(isin, loader)
+	} else {
+		for isin, loader := range security.Securities {
+			loadQuote(isin, loader)
 		}
-
-		if len(oldQuotes) == 0 {
-			log.Warn("no OLD quotes found")
-		} else {
-			log.Debug("found OLD quotes",
-				"from", oldQuotes[0].Date,
-				"to", oldQuotes[len(oldQuotes)-1].Date,
-			)
-		}
-
-		mergedQuotes := security.Merge(oldQuotes, newQuotes)
-		log.Debug("merged quotes",
-			"from", mergedQuotes[0].Date,
-			"to", mergedQuotes[len(mergedQuotes)-1].Date,
-		)
-
-		err = writeQuotesToFile(filename, mergedQuotes)
-		if err != nil {
-			log.Errorf("error writing quotes: %s", err.Error())
-			continue
-		}
-
-		addedQuotes := len(mergedQuotes) - len(oldQuotes)
-		if addedQuotes == 0 {
-			log.Infof("[%s] no new quotes added", f.ISIN())
-		} else {
-			log.Infof(
-				"[%s] new quotes added [%d] - old [%d] - new [%d]",
-				f.ISIN(), addedQuotes, len(oldQuotes), len(newQuotes),
-			)
-		}
-
-		log.Infof("[%s] quotes loaded in %s", f.ISIN(), time.Since(start))
 	}
+}
+
+func loadQuote(isin string, loader security.QuoteLoader) {
+	start := time.Now().In(time.UTC)
+
+	log.Infof("[%s] loading quotes for '%s'", loader.ISIN(), loader.Name())
+
+	newQuotes, err := loader.LoadQuotes()
+	if err != nil {
+		log.Errorf("error loading quotes: %s", err)
+		return
+	}
+	if len(newQuotes) == 0 {
+		log.Warn("no quotes found")
+		return
+	}
+
+	log.Debug("new quotes loaded",
+		"from", newQuotes[0].Date,
+		"to", newQuotes[len(newQuotes)-1].Date,
+	)
+
+	filename := fmt.Sprintf("out/json/%s.json", isin)
+	log.Debugf("loading OLD quotes from '%s'", filename)
+
+	oldQuotes, err := loadQuotesFromFile(filename)
+	if err != nil {
+		log.Errorf("error loading quotes: %s", err.Error())
+		return
+	}
+
+	if len(oldQuotes) == 0 {
+		log.Warn("no OLD quotes found")
+	} else {
+		log.Debug("found OLD quotes",
+			"from", oldQuotes[0].Date,
+			"to", oldQuotes[len(oldQuotes)-1].Date,
+		)
+	}
+
+	mergedQuotes := security.Merge(oldQuotes, newQuotes)
+	log.Debug("merged quotes",
+		"from", mergedQuotes[0].Date,
+		"to", mergedQuotes[len(mergedQuotes)-1].Date,
+	)
+
+	err = writeQuotesToFile(filename, mergedQuotes)
+	if err != nil {
+		log.Errorf("error writing quotes: %s", err.Error())
+		return
+	}
+
+	addedQuotes := len(mergedQuotes) - len(oldQuotes)
+	if addedQuotes == 0 {
+		log.Infof("[%s] no new quotes added", loader.ISIN())
+	} else {
+		log.Infof(
+			"[%s] new quotes added [%d] - old [%d] - new [%d]",
+			loader.ISIN(), addedQuotes, len(oldQuotes), len(newQuotes),
+		)
+	}
+
+	log.Infof("[%s] quotes loaded in %s", loader.ISIN(), time.Since(start))
 }
 
 func loadQuotesFromFile(filename string) ([]security.Quote, error) {
