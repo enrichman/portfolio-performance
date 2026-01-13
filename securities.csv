@@ -2,7 +2,6 @@
 # Borsa Italiana
 ###################
 
-
 # BTP
 
 "IT0005547408.MOT","Btp Valore Gn27 Eur","borsaitaliana"
@@ -14,12 +13,12 @@
 "IT0003934657.MOT","Btp-1fb37 4% Eur","borsaitaliana"
 
 "IT0005217770.MOT","Btp Italia Ot24 Eur","borsaitaliana"
-"IT0005410912.MOT","Btp Italia Mg25 Eur","borsaitaliana"
 "IT0005332835.MOT","Btp Italia Mg26 Eur","borsaitaliana"
 "IT0005388175.MOT","Btp Italia Ot27 Eur","borsaitaliana"
-"IT0005532723.MOT","Btp Italia Mz28 Eur","borsaitaliana"
-"IT0005517195.MOT","Btp Italia Nv28 Eur","borsaitaliana"
+"IT0005410912.MOT","Btp Italia Mg25 Eur","borsaitaliana"
 "IT0005497000.MOT","Btp Italia Gn30 Eur","borsaitaliana"
+"IT0005517195.MOT","Btp Italia Nv28 Eur","borsaitaliana"
+"IT0005532723.MOT","Btp Italia Mz28 Eur","borsaitaliana"
 
 "IT0005634800.MOT","Btp Piu' Sc Fb33 Eur","borsaitaliana"
 
@@ -34,90 +33,81 @@
 "IT0005246134.MOT","Btpi Tf 1,30% Mg28 Eur","borsaitaliana"
 "IT0005543803.MOT","Btpi Tf 1.5% Mg29 Eur","borsaitaliana"
 
-"IT0005559817.MOT","Bot Zc Ag24 A Eur","borsaitaliana"
 "IT0005425761.MOT","Btp Futura Nv28 Eur","borsaitaliana"
-
+"IT0005559817.MOT","Bot Zc Ag24 A Eur","borsaitaliana"
 
 # Bond
 
+"AT0000A2VB47.MOT","Austria Tf 0% Ot28 Eur","borsaitaliana"
 "AT0000A324S8.MOT","Austria Tf 2,9% Fb33 Eur","borsaitaliana"
 "BE0000351602.MOT","Belgium Tf 0% Ot27 Eur","borsaitaliana"
 "DE0001102358.MOT","Bund Tf 1.5% Mg24 Eur","borsaitaliana"
 "DE0001102366.MOT","Bund Tf 1% Ag24 Eur","borsaitaliana"
 "DE000BU22007.MOT","Schatz Tf 2,5% Mz25 Eur","borsaitaliana"
-"IT0005521171.MOT","Eni Sdg Linked Tf 4,3% Fb28 Eur","borsaitaliana"
 "FI4000511449.MOT","Finland Tf 0% St26 Eur","borsaitaliana"
 "FR0011982776.MOT","Oatei Tf 0.7% Lg30 Eur","borsaitaliana"
-"FR0014001N38.MOT","Oatei Tf 0,1% Lg31 Eur","borsaitaliana"
-"AT0000A2VB47.MOT","Austria Tf 0% Ot28 Eur","borsaitaliana"
 "FR0013410552.MOT","Oatei Tf 0,1% Mz29 Eur","borsaitaliana"
+"FR0014001N38.MOT","Oatei Tf 0,1% Lg31 Eur","borsaitaliana"
+"IT0005521171.MOT","Eni Sdg Linked Tf 4,3% Fb28 Eur","borsaitaliana"
+"IT0006768151.MOT","Carraro Finance Fx 5.25% Apr30 Call Eur","borsaitaliana"
+"US91282CAV37.TLX","Usa Tf 0,875% Nv30 Usd","borsaitaliana"
 "XS2110112971.TLX","Citigroup Social Bond Tf 3,28% Dc25 Eur","borsaitaliana"
 "XS2533094400.TLX","Mediobanca Tf 3,4% Ot26 Eur","borsaitaliana"
 "XS2587298204.MOT","Eib Tf 2,75% Lg28 Eur","borsaitaliana"
 "XS2908645265.MOT","Romania Fx 6% Sep44 Eur","borsaitaliana"
 "XS2999552909.MOT","Romania Fx 6.25% Sep34 Eur","borsaitaliana"
-"US91282CAV37.TLX","Usa Tf 0,875% Nv30 Usd","borsaitaliana"
-"IT0006768151.MOT","Carraro Finance Fx 5.25% Apr30 Call Eur","borsaitaliana"
-"XS3033991608.MOT","Gs Fin Corp Mc Sep35 Call Eur","borsaitaliana"
 "XS3033981393.MOT","Gs Fin Corp Mc Sep35 Call Usd","borsaitaliana"
-
+"XS3033991608.MOT","Gs Fin Corp Mc Sep35 Call Eur","borsaitaliana"
 
 # Certificates
 # For the certificates you need to add the .MCW suffix and the alphanumeric code to the ISIN code
 
-"XS1778816436.MCW.SWORLD","SGI TRAC MSCI TRN WORLD 6043.153 OP END","borsaitaliana"
-"XS2689917198.MCW.I09569","IS EP CP EURIBOR 3M .02 311028","borsaitaliana"
-"XS2767495521.MCW.I09951","IS BON CAP EURO STOXX 5063.106 60 280329","borsaitaliana"
-"XS2982333986.MCW.I10714","IS BON CAP UNICREDIT 51.33 60 280229","borsaitaliana"
+"DE000VD5HH87.MCW.F47661","VON EXP COINBASE GLOB/BEYOND M 50 040526","borsaitaliana"
+"DE000VH3LSJ9.MCW.F77207","VON EXP BPM/COMM/MPS/BARCL 55 110928","borsaitaliana"
 "DE000VK1VSJ7.MCW.F68746","VON EXP MSFT/NVDA/TESLA/VISA 50 170428","borsaitaliana"
 "DE000VK2YTQ2.MCW.F70622","VON EXP ABNB/ADOBE/NOVO/PPAL 60 240527","borsaitaliana"
 "DE000VM2MR66.MCW.F40010","VON EXP ENI/ENEL/ISP/STLAM 100 60 250926","borsaitaliana"
-"DE000VD5HH87.MCW.F47661","VON EXP COINBASE GLOB/BEYOND M 50 040526","borsaitaliana"
-"DE000VH3LSJ9.MCW.F77207","VON EXP BPM/COMM/MPS/BARCL 55 110928","borsaitaliana"
+"XS1778816436.MCW.SWORLD","SGI TRAC MSCI TRN WORLD 6043.153 OP END","borsaitaliana"
 "XS1967674521.MCW.I05228","IS EP CP EUROSTOXX SEL D 2045.32 300426","borsaitaliana"
+"XS2689917198.MCW.I09569","IS EP CP EURIBOR 3M .02 311028","borsaitaliana"
+"XS2767495521.MCW.I09951","IS BON CAP EURO STOXX 5063.106 60 280329","borsaitaliana"
+"XS2982333986.MCW.I10714","IS BON CAP UNICREDIT 51.33 60 280229","borsaitaliana"
 
 ###################
 # Fondi pensione
 ###################
 
-
 # Fon.Te.
 
 "FP-FonTe-Dinamico","Fondo Pensione Fon.Te. - Comparto Dinamico","fonte"
 
-
 # Priamo
 
+"FP-Priamo-BilanciatoPrudenza","Fondo Pensione Priamo - Comparto Bilanciato Prudenza","priamo"
 "FP-Priamo-BilanciatoSviluppo","Fondo Pensione Priamo - Comparto Bilanciato Sviluppo","priamo"
 "FP-Priamo-GarantitoProtezione","Fondo Pensione Priamo - Comparto Garantito Protezione","priamo"
-"FP-Priamo-BilanciatoPrudenza","Fondo Pensione Priamo - Comparto Bilanciato Prudenza","priamo"
-
 
 # Secondapensione
 
 "QS0000003560","SecondaPensione Prudente ESG","secondapensione"
-"QS0000003564","SecondaPensione Sviluppo ESG","secondapensione"
-"QS0000013033","SecondaPensione Garantita ESG","secondapensione"
 "QS0000003561","SecondaPensione Espansione ESG","secondapensione"
 "QS0000003562","SecondaPensione Bilanciata ESG","secondapensione"
-
+"QS0000003564","SecondaPensione Sviluppo ESG","secondapensione"
+"QS0000013033","SecondaPensione Garantita ESG","secondapensione"
 
 ##################
 # Misc
 ##################
-
 
 "IT0000384641","Arca TE - Titoli Esteri","fondidoc"
 "IT0001083424","Eurizon Azionario Internazionale Etico","fondidoc"
 "IT0005640377","Eurizon Strategia Obbligazionaria 5a Ed.1-25 Dis","fondidoc"
 "IT0005640393","Eurizon Strategia Obblig. HY 5a Ed.1-2025 Dis","fondidoc"
 
-
 ########################
 # Raiffeisen Svizzera
 ########################
 
-
 "CH0025417491","Swisscanto (CH) Index Equity Fund Switzerland Total (II) FA CHF","raiffeisench"
-"CH1201876484","Swisscanto (CH) Index Fund III - Swisscanto (CH) Index Equity Fund MSCI (R) World ex Switzerland","raiffeisench"
 "CH0561458610","Swisscanto (CH) Index Equity Fund Emerging Markets Responsible FA CHF","raiffeisench"
+"CH1201876484","Swisscanto (CH) Index Fund III - Swisscanto (CH) Index Equity Fund MSCI (R) World ex Switzerland","raiffeisench"

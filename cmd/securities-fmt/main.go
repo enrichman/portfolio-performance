@@ -11,13 +11,59 @@ import (
 )
 
 type Block struct {
-	Header []string   // commenti e separatori
-	Rows   [][]string // record CSV
+	Header []string
+	Rows   [][]string
 }
 
-func die(msg string, args ...any) {
-	fmt.Fprintf(os.Stderr, "❌ "+msg+"\n", args...)
-	os.Exit(1)
+func main() {
+	var (
+		write = flag.Bool("w", false, "writes result to file")
+		file  = flag.String("file", "securities.csv", "file to format")
+		check = flag.Bool("check", false, "check if file is already formatted")
+	)
+
+	flag.Parse()
+
+	blocks, err := readBlocks(*file)
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "❌ failed reading blocks: %s\n", err.Error())
+		os.Exit(1)
+	}
+
+	formatted, err := formatToString(blocks)
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "❌ failed formatting string: %s\n", err.Error())
+		os.Exit(1)
+	}
+
+	if *check {
+		original, err := os.ReadFile(*file)
+		if err != nil {
+			fmt.Fprintf(os.Stderr, "❌ failed reading file: %s\n", err.Error())
+			os.Exit(1)
+		}
+
+		if string(original) != formatted {
+			fmt.Println("❌ securities.csv format check failed")
+			os.Exit(1)
+		}
+
+		fmt.Println("✅ securities.csv formatted correctly")
+		return
+	}
+
+	if *write {
+		if err := os.WriteFile(*file, []byte(formatted), 0644); err != nil {
+			fmt.Fprintf(os.Stderr, "❌ failed writing file: %s\n", err.Error())
+			os.Exit(1)
+		}
+
+		fmt.Println("✅ securities.csv formatted")
+		return
+	}
+
+	// default: stampa su stdout
+	fmt.Print(formatted)
 }
 
 func readBlocks(path string) ([]Block, error) {
@@ -57,7 +103,7 @@ func readBlocks(path string) ([]Block, error) {
 			r := csv.NewReader(strings.NewReader(line))
 			rec, err := r.Read()
 			if err != nil || len(rec) != 3 {
-				return nil, fmt.Errorf("riga CSV non valida: %q", line)
+				return nil, fmt.Errorf("invalid CSV line: %q", line)
 			}
 			cur.Rows = append(cur.Rows, rec)
 		}
@@ -67,74 +113,28 @@ func readBlocks(path string) ([]Block, error) {
 	return blocks, sc.Err()
 }
 
-func writeBlocks(path string, blocks []Block) error {
-	tmp := path + ".tmp"
-
-	f, err := os.Create(tmp)
-	if err != nil {
-		return err
-	}
-	defer f.Close()
-
-	w := bufio.NewWriter(f)
-
+func writeBlocks(w *bufio.Writer, blocks []Block) error {
 	for i, b := range blocks {
 		// Header
 		for _, h := range b.Header {
 			fmt.Fprintln(w, h)
 		}
 
-		// Ordina per prima colonna
 		sort.SliceStable(b.Rows, func(i, j int) bool {
 			return b.Rows[i][0] < b.Rows[j][0]
 		})
 
-		// Scrive righe CSV
 		for _, row := range b.Rows {
 			if err := writeQuotedRow(w, row); err != nil {
 				return err
 			}
 		}
 
-		// Riga vuota tra blocchi (non dopo l'ultimo)
 		if i < len(blocks)-1 {
 			fmt.Fprintln(w)
 		}
 	}
-
-	if err := w.Flush(); err != nil {
-		return err
-	}
-
-	return os.Rename(tmp, path)
-}
-
-func main() {
-	var (
-		write = flag.Bool("w", false, "riscrive securities.csv")
-		file  = flag.String("file", "securities.csv", "file da formattare")
-	)
-	flag.Parse()
-
-	blocks, err := readBlocks(*file)
-	if err != nil {
-		die("%v", err)
-	}
-
-	if *write {
-		if err := writeBlocks(*file, blocks); err != nil {
-			die("%v", err)
-		}
-		fmt.Println("✅ file formattato")
-		return
-	}
-
-	// dry-run: scrive su stdout
-	if err := writeBlocks(*file+".formatted", blocks); err != nil {
-		die("%v", err)
-	}
-	fmt.Println("ℹ️ scritto:", *file+".formatted")
-	fmt.Println("Usa: diff -u", *file, *file+".formatted")
+	return w.Flush()
 }
 
 func writeQuotedRow(w *bufio.Writer, row []string) error {
@@ -153,4 +153,14 @@ func writeQuotedRow(w *bufio.Writer, row []string) error {
 		}
 	}
 	return w.WriteByte('\n')
+}
+
+func formatToString(blocks []Block) (string, error) {
+	var sb strings.Builder
+	w := bufio.NewWriter(&sb)
+
+	if err := writeBlocks(w, blocks); err != nil {
+		return "", err
+	}
+	return sb.String(), nil
 }
