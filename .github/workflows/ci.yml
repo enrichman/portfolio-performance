@@ -19,4 +19,4 @@ jobs:
         run: go build -o portfolio-performance .
 
       - name: Run quotes getter
-        run: go run ./portfolio-performance
+        run: ./portfolio-performance
