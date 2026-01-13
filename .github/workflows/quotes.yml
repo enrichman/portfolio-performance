@@ -16,9 +16,12 @@ jobs:
       - uses: actions/setup-go@v5
       - uses: actions/configure-pages@v5
 
+      - name: Build
+        run: go build -o portfolio-performance .
+
       - name: Run quotes getter
         run: |
-          go run ./...
+          ./portfolio-performance
           
           if [ -z $(git status --porcelain) ];
           then
