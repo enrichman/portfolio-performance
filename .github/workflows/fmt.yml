@@ -18,4 +18,6 @@ jobs:
         run: go build -o securities-fmt ./cmd/securities-fmt
 
       - name: Check securities.csv format
-        run: ./securities-fmt --check
+        run: |
+          ./securities-fmt -w
+          git diff --exit-code securities.csv
