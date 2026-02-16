@@ -4,60 +4,95 @@
 
 # BTP
 
+"IT0005367492.MOT","Btp Tf 1,75% Lg24 Eur","borsaitaliana"
+"IT0005499311.MOT","Btp Tf 1,75% Mg24 Eur","borsaitaliana"
+"IT0005559817.MOT","Bot Zc Ag24 A Eur","borsaitaliana"
+"IT0005217770.MOT","Btp Italia Ot24 Eur","borsaitaliana"
+"IT0005474330.MOT","Btp Tf 0% Dc24 Eur","borsaitaliana"
+"IT0005410912.MOT","Btp Italia Mg25 Eur","borsaitaliana"
+"IT0005437147.MOT","Btp Tf 0% Ap26 Eur","borsaitaliana"
+"IT0005332835.MOT","Btp Italia Mg26 Eur","borsaitaliana"
 "IT0005547408.MOT","Btp Valore Gn27 Eur","borsaitaliana"
+"IT0005484552.MOT","Btp Tf 1,1% Ap27 Eur","borsaitaliana"
+"IT0005388175.MOT","Btp Italia Ot27 Eur","borsaitaliana"
 "IT0005565400.MOT","Btp Valore Sc Oct28 Eur","borsaitaliana"
+"IT0005532723.MOT","Btp Italia Mz28 Eur","borsaitaliana"
+"IT0005246134.MOT","Btpi Tf 1,30% Mg28 Eur","borsaitaliana"
+"IT0005517195.MOT","Btp Italia Nv28 Eur","borsaitaliana"
+"IT0005425761.MOT","Btp Futura Nv28 Eur","borsaitaliana"
+"IT0005543803.MOT","Btpi Tf 1.5% Mg29 Eur","borsaitaliana"
+"IT0005497000.MOT","Btp Italia Gn30 Eur","borsaitaliana"
 "IT0005583486.MOT","Btp Valore Sc Mz30 Eur","borsaitaliana"
 "IT0005594483.MOT","Btp Valore Sc Mg30 Eur","borsaitaliana"
-"IT0005672024.MOT","Btp Valore Sc Ot32 Eur","borsaitaliana"
-
-"IT0003934657.MOT","Btp-1fb37 4% Eur","borsaitaliana"
-
-"IT0005217770.MOT","Btp Italia Ot24 Eur","borsaitaliana"
-"IT0005332835.MOT","Btp Italia Mg26 Eur","borsaitaliana"
-"IT0005388175.MOT","Btp Italia Ot27 Eur","borsaitaliana"
-"IT0005410912.MOT","Btp Italia Mg25 Eur","borsaitaliana"
-"IT0005497000.MOT","Btp Italia Gn30 Eur","borsaitaliana"
-"IT0005517195.MOT","Btp Italia Nv28 Eur","borsaitaliana"
-"IT0005532723.MOT","Btp Italia Mz28 Eur","borsaitaliana"
-
-"IT0005634800.MOT","Btp Piu' Sc Fb33 Eur","borsaitaliana"
-
-"IT0005367492.MOT","Btp Tf 1,75% Lg24 Eur","borsaitaliana"
 "IT0005403396.MOT","Btp Tf 0,95% Ag30 Eur","borsaitaliana"
-"IT0005437147.MOT","Btp Tf 0% Ap26 Eur","borsaitaliana"
-"IT0005474330.MOT","Btp Tf 0% Dc24 Eur","borsaitaliana"
-"IT0005484552.MOT","Btp Tf 1,1% Ap27 Eur","borsaitaliana"
+"IT0005672024.MOT","Btp Valore Sc Ot32 Eur","borsaitaliana"
 "IT0005494239.MOT","Btp Tf 2,5% Dc32 Eur","borsaitaliana"
-"IT0005499311.MOT","Btp Tf 1,75% Mg24 Eur","borsaitaliana"
+"IT0005634800.MOT","Btp Piu' Sc Fb33 Eur","borsaitaliana"
+"IT0005518128.MOT","Btp Tf 4,40% Mg33 Eur","borsaitaliana"
+"IT0003934657.MOT","Btp-1fb37 4% Eur","borsaitaliana"
+"IT0005582421.MOT","Btp Fx 4.15% Oct39 Eur","borsaitaliana"
 "IT0005530032.MOT","Btp Tf 4,45% St43 Eur","borsaitaliana"
 
-"IT0005246134.MOT","Btpi Tf 1,30% Mg28 Eur","borsaitaliana"
-"IT0005543803.MOT","Btpi Tf 1.5% Mg29 Eur","borsaitaliana"
 
-"IT0005425761.MOT","Btp Futura Nv28 Eur","borsaitaliana"
-"IT0005559817.MOT","Bot Zc Ag24 A Eur","borsaitaliana"
-"IT0005582421.MOT","Btp Fx 4.15% Oct39 Eur","borsaitaliana"
+## Bond altre countries
 
-# Bond
+#Austria
 
 "AT0000A2VB47.MOT","Austria Tf 0% Ot28 Eur","borsaitaliana"
 "AT0000A324S8.MOT","Austria Tf 2,9% Fb33 Eur","borsaitaliana"
+"AT0000A10683.MOT","Austria Tf 2,4% Mg34 Eur","borsaitaliana"
+
+#Belgio
+
 "BE0000351602.MOT","Belgium Tf 0% Ot27 Eur","borsaitaliana"
+
+#Germania
+
 "DE0001102358.MOT","Bund Tf 1.5% Mg24 Eur","borsaitaliana"
 "DE0001102366.MOT","Bund Tf 1% Ag24 Eur","borsaitaliana"
 "DE000BU22007.MOT","Schatz Tf 2,5% Mz25 Eur","borsaitaliana"
+
+#Grecia
+
+"GR0128015725.MOT","Ggb Tf 3,9% Ge33 Eur","borsaitaliana"
+
+#Francia
+
 "FI4000511449.MOT","Finland Tf 0% St26 Eur","borsaitaliana"
 "FR0011982776.MOT","Oatei Tf 0.7% Lg30 Eur","borsaitaliana"
 "FR0013410552.MOT","Oatei Tf 0,1% Mz29 Eur","borsaitaliana"
 "FR0014001N38.MOT","Oatei Tf 0,1% Lg31 Eur","borsaitaliana"
+
+#Polonia
+
+"XS2726911931.MOT","Poland Fx 3.625% Nov30 Eur","borsaitaliana"
+"XS2586944659.MOT","Poland Tf 3,875% Fb33 Eur","borsaitaliana"
+
+#Romania
+
+"XS2770920937.MOT","Romania Fx 5.375% Mar31 Eur","borsaitaliana"
+"XS1970549561.MOT","Romania Tf 3,5% Ap34 Eur","borsaitaliana"
+"XS2999552909.MOT","Romania Fx 6.25% Sep34 Eur","borsaitaliana"
+"XS2908645265.MOT","Romania Fx 6% Sep44 Eur","borsaitaliana"
+
+#Spagna
+
+"ES0000012L78.MOT","Obligaciones Tf 3,55% Ot33 Eur","borsaitaliana"
+"ES0000012L60.MOT","Obligaciones Tf 3,9% Lg39 Eur","borsaitaliana"
+
+#Ungheria
+
+"XS2753429047.MOT","Hungary Green Fx 4% Jul29 Eur","borsaitaliana"
+"XS2680932907.MOT","Hungary Fx 5.375% Sep33 Eur","borsaitaliana"
+
+##Corporare bond
+
 "IT0005521171.MOT","Eni Sdg Linked Tf 4,3% Fb28 Eur","borsaitaliana"
 "IT0006768151.MOT","Carraro Finance Fx 5.25% Apr30 Call Eur","borsaitaliana"
 "US91282CAV37.TLX","Usa Tf 0,875% Nv30 Usd","borsaitaliana"
 "XS2110112971.TLX","Citigroup Social Bond Tf 3,28% Dc25 Eur","borsaitaliana"
 "XS2533094400.TLX","Mediobanca Tf 3,4% Ot26 Eur","borsaitaliana"
 "XS2587298204.MOT","Eib Tf 2,75% Lg28 Eur","borsaitaliana"
-"XS2908645265.MOT","Romania Fx 6% Sep44 Eur","borsaitaliana"
-"XS2999552909.MOT","Romania Fx 6.25% Sep34 Eur","borsaitaliana"
 "XS3033981393.MOT","Gs Fin Corp Mc Sep35 Call Usd","borsaitaliana"
 "XS3033991608.MOT","Gs Fin Corp Mc Sep35 Call Eur","borsaitaliana"
 
