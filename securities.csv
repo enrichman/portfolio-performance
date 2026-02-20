@@ -61,6 +61,11 @@
 "XS3033981393.MOT","Gs Fin Corp Mc Sep35 Call Usd","borsaitaliana"
 "XS3033991608.MOT","Gs Fin Corp Mc Sep35 Call Eur","borsaitaliana"
 
+# European Bonds / BEI / EFSF
+
+"EU000A4EG021.MOT","Eu Next Gen Ukr Fa Fx 2.5% Oct30 Eur","borsaitaliana"
+
+
 # Certificates
 # For the certificates you need to add the .MCW suffix and the alphanumeric code to the ISIN code
 
