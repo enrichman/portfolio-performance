@@ -10,8 +10,6 @@
 "IT0005594483.MOT","Btp Valore Sc Mg30 Eur","borsaitaliana"
 "IT0005672024.MOT","Btp Valore Sc Ot32 Eur","borsaitaliana"
 
-"IT0003934657.MOT","Btp-1fb37 4% Eur","borsaitaliana"
-
 "IT0005217770.MOT","Btp Italia Ot24 Eur","borsaitaliana"
 "IT0005332835.MOT","Btp Italia Mg26 Eur","borsaitaliana"
 "IT0005388175.MOT","Btp Italia Ot27 Eur","borsaitaliana"
@@ -19,9 +17,9 @@
 "IT0005497000.MOT","Btp Italia Gn30 Eur","borsaitaliana"
 "IT0005517195.MOT","Btp Italia Nv28 Eur","borsaitaliana"
 "IT0005532723.MOT","Btp Italia Mz28 Eur","borsaitaliana"
+"IT0005648255.MOT","Btp Italia Jun32 Eur","borsaitaliana"
 
-"IT0005634800.MOT","Btp Piu' Sc Fb33 Eur","borsaitaliana"
-
+"IT0005083057.MOT","Btp Tf 3,25% St46 Eur","borsaitaliana"
 "IT0005367492.MOT","Btp Tf 1,75% Lg24 Eur","borsaitaliana"
 "IT0005403396.MOT","Btp Tf 0,95% Ag30 Eur","borsaitaliana"
 "IT0005437147.MOT","Btp Tf 0% Ap26 Eur","borsaitaliana"
@@ -34,9 +32,15 @@
 "IT0005246134.MOT","Btpi Tf 1,30% Mg28 Eur","borsaitaliana"
 "IT0005543803.MOT","Btpi Tf 1.5% Mg29 Eur","borsaitaliana"
 
+"IT0005582421.MOT","Btp Fx 4.15% Oct39 Eur","borsaitaliana"
+"IT0005611741.MOT","Btp Fx 4.3% Oct54 Eur","borsaitaliana"
+"IT0005619546.MOT","Btp Fx 3.15% Nov31 Eur","borsaitaliana"
+
+"IT0003934657.MOT","Btp-1fb37 4% Eur","borsaitaliana"
 "IT0005425761.MOT","Btp Futura Nv28 Eur","borsaitaliana"
 "IT0005559817.MOT","Bot Zc Ag24 A Eur","borsaitaliana"
-"IT0005582421.MOT","Btp Fx 4.15% Oct39 Eur","borsaitaliana"
+"IT0005631608.MOT","Btp Green Fx 4.1% Apr46 Eur","borsaitaliana"
+"IT0005634800.MOT","Btp Piu' Sc Fb33 Eur","borsaitaliana"
 
 # Bond
 
@@ -60,6 +64,9 @@
 "XS2999552909.MOT","Romania Fx 6.25% Sep34 Eur","borsaitaliana"
 "XS3033981393.MOT","Gs Fin Corp Mc Sep35 Call Usd","borsaitaliana"
 "XS3033991608.MOT","Gs Fin Corp Mc Sep35 Call Eur","borsaitaliana"
+
+"XS2837717250.MOT","Isp Sc Jun36 Usd","borsaitaliana"
+"XS2837717417.MOT","Isp Sc Jun27 Usd","borsaitaliana"
 
 # Certificates
 # For the certificates you need to add the .MCW suffix and the alphanumeric code to the ISIN code
