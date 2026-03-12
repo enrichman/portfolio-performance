@@ -68,6 +68,10 @@
 "XS2837717250.MOT","Isp Sc Jun36 Usd","borsaitaliana"
 "XS2837717417.MOT","Isp Sc Jun27 Usd","borsaitaliana"
 
+# European Bonds / BEI / EFSF
+
+"EU000A4EG021.MOT","Eu Next Gen Ukr Fa Fx 2.5% Oct30 Eur","borsaitaliana"
+
 # Certificates
 # For the certificates you need to add the .MCW suffix and the alphanumeric code to the ISIN code
 
