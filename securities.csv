@@ -55,10 +55,15 @@
 
 "BE0000351602.MOT","Belgium Tf 0% Ot27 Eur","borsaitaliana"
 
+# Bulgaria
+
+"XS2579483319.MOT","Bulgaria Tf 4,5% Ge33 Eur","borsaitaliana"
+
 # Germania
 
 "DE0001102358.MOT","Bund Tf 1.5% Mg24 Eur","borsaitaliana"
 "DE0001102366.MOT","Bund Tf 1% Ag24 Eur","borsaitaliana"
+"DE0001102408.MOT","Bund Tf 0% Ag26 Eur","borsaitaliana"
 "DE000BU22007.MOT","Schatz Tf 2,5% Mz25 Eur","borsaitaliana"
 
 # Grecia
@@ -91,6 +96,7 @@
 
 # Ungheria
 
+"XS1696445516.MOT","Hungary Tf 1,75% Ot27 Eur","borsaitaliana"
 "XS2680932907.MOT","Hungary Fx 5.375% Sep33 Eur","borsaitaliana"
 "XS2753429047.MOT","Hungary Green Fx 4% Jul29 Eur","borsaitaliana"
 
@@ -110,6 +116,7 @@
 # European Bonds / BEI / EFSF
 
 "EU000A4EG021.MOT","Eu Next Gen Ukr Fa Fx 2.5% Oct30 Eur","borsaitaliana"
+"XS2419364653.MOT","Eib Green Tf 0% Nv27 Eur","borsaitaliana"
 
 # Certificates
 # For the certificates you need to add the .MCW suffix and the alphanumeric code to the ISIN code
