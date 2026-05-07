@@ -14,9 +14,7 @@ import (
 )
 
 const (
-	// Version of the CSV file structure
-	version = "20241009"
-	urlPath = "https://www.fondotelemaco.it/grafici/csv/valori quota %s.csv?v=%s"
+	urlPath = "https://www.fondotelemaco.it/grafici/csv/valori quota %s.csv"
 )
 
 type Telemaco struct {
@@ -36,7 +34,11 @@ func (e *Telemaco) Name() string { return e.name }
 func (e *Telemaco) ISIN() string { return e.isin }
 
 func (t *Telemaco) LoadQuotes() ([]security.Quote, error) {
-	url := fmt.Sprintf(urlPath, strings.Split(t.isin, "-")[2], version)
+	isinParts := strings.Split(t.isin, "-")
+	if len(isinParts) != 3 {
+		return nil, fmt.Errorf("invalid ISIN format for telemaco loader: expected 3 parts separated by '-', e.g. 'FP-Telemaco-dinamico', got %d", len(isinParts))
+	}
+	url := fmt.Sprintf(urlPath, isinParts[2])
 
 	resp, err := http.Get(url)
 	if err != nil {
