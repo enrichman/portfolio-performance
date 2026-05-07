@@ -62,8 +62,8 @@
 
 "DE0001102358.MOT","Bund Tf 1.5% Mg24 Eur","borsaitaliana"
 "DE0001102366.MOT","Bund Tf 1% Ag24 Eur","borsaitaliana"
-"DE000BU22007.MOT","Schatz Tf 2,5% Mz25 Eur","borsaitaliana"
 "DE0001102408.MOT","Bund Tf 0% Ag26 Eur","borsaitaliana"
+"DE000BU22007.MOT","Schatz Tf 2,5% Mz25 Eur","borsaitaliana"
 
 # Grecia
 
@@ -95,9 +95,9 @@
 
 # Ungheria
 
+"XS1696445516.MOT","Hungary Tf 1,75% Ot27 Eur","borsaitaliana"
 "XS2680932907.MOT","Hungary Fx 5.375% Sep33 Eur","borsaitaliana"
 "XS2753429047.MOT","Hungary Green Fx 4% Jul29 Eur","borsaitaliana"
-"XS1696445516.MOT","Hungary Tf 1,75% Ot27 Eur","borsaitaliana"
 
 ## Corporate bonds
 
