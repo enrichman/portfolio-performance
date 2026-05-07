@@ -146,6 +146,12 @@
 "QS0000003564","SecondaPensione Sviluppo ESG","secondapensione"
 "QS0000013033","SecondaPensione Garantita ESG","secondapensione"
 
+# Telemaco
+
+"FP-Telemaco-dinamico","Telemaco - Comparto Dinamico","telemaco"
+"FP-Telemaco-garantito","Telemaco - Comparto Garantito","telemaco"
+"FP-Telemaco-prudente","Telemaco - Comparto Prudente","telemaco"
+
 ##################
 # Misc
 ##################
