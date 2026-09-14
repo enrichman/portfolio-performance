@@ -100,11 +100,14 @@
 "XS2680932907.MOT","Hungary Fx 5.375% Sep33 Eur","borsaitaliana"
 "XS2753429047.MOT","Hungary Green Fx 4% Jul29 Eur","borsaitaliana"
 
+# US
+"US91282CAV37.TLX","Usa Tf 0,875% Nv30 Usd","borsaitaliana"
+"US91282CDJ71.TLX","Usa Tf 1,375% Nv31 Usd","borsaitaliana"
+
 ## Corporate bonds
 
 "IT0005521171.MOT","Eni Sdg Linked Tf 4,3% Fb28 Eur","borsaitaliana"
 "IT0006768151.MOT","Carraro Finance Fx 5.25% Apr30 Call Eur","borsaitaliana"
-"US91282CAV37.TLX","Usa Tf 0,875% Nv30 Usd","borsaitaliana"
 "XS2110112971.TLX","Citigroup Social Bond Tf 3,28% Dc25 Eur","borsaitaliana"
 "XS2533094400.TLX","Mediobanca Tf 3,4% Ot26 Eur","borsaitaliana"
 "XS2587298204.MOT","Eib Tf 2,75% Lg28 Eur","borsaitaliana"
